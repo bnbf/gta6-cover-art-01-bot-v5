@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Golden Hour Cover Studio — GTA 6 Cover Art Maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">GOLDEN HOUR <span>Cover Studio</span></div>
+  <div class="top-actions">
+    <button id="undoBtn" type="button">Undo</button>
+    <button id="redoBtn" type="button">Redo</button>
+    <button id="shuffleBtn" type="button">Shuffle</button>
+    <button id="resetBtn" type="button">Reset</button>
+  </div>
+</header>
+
+<main class="studio">
+  <section class="stage">
+    <canvas id="cover" width="1920" height="1080" aria-label="Cover preview"></canvas>
+    <p class="hint">Click a panel to select it, then pick a photo or art below. Drag a photo to pan, scroll to zoom.</p>
+    <div class="stage-actions">
+      <button id="exportBtn" type="button" class="primary">Export PNG</button>
+      <button id="shareBtn" type="button">Copy share text</button>
+      <label class="upload-btn">Upload photos (up to 4)
+        <input id="upload" type="file" accept="image/*" multiple hidden>
+      </label>
+    </div>
+    <div id="thumbs" class="thumbs" aria-label="Photos and art"></div>
+  </section>
+
+  <aside class="panel">
+    <h2>Presets</h2>
+    <div id="presets" class="chips"></div>
+
+    <h2>Layout <span id="slotLabel" class="muted"></span></h2>
+    <div id="layouts" class="chips"></div>
+
+    <h2>Grade</h2>
+    <div id="grades" class="chips"></div>
+
+    <h2>Export size</h2>
+    <div id="sizes" class="chips"></div>
+
+    <h2>Cover text</h2>
+    <label>Title <input id="title" type="text" maxlength="24"></label>
+    <label>Subtitle (script) <input id="subtitle" type="text" maxlength="40"></label>
+    <label>Tagline ribbon <input id="tagline" type="text" maxlength="60"></label>
+    <label>Press quote <input id="quote" type="text" maxlength="80"></label>
+    <label>Paper <input id="paper" type="text" maxlength="30"></label>
+    <label>Volume tag <input id="vol" type="text" maxlength="12"></label>
+    <label>Seal text <input id="seal" type="text" maxlength="24"></label>
+    <label>Footer credits <input id="footer" type="text" maxlength="80"></label>
+
+    <h2>Selected panel</h2>
+    <label>Zoom <span id="zoomVal" class="muted"></span>
+      <input id="zoom" type="range" min="100" max="300" step="5">
+    </label>
+
+    <h2>Heat</h2>
+    <label>Heat <span id="heatVal" class="muted"></span>
+      <input id="heat" type="range" min="1" max="5" step="1">
+    </label>
+
+    <h2>Show</h2>
+    <label class="check"><input id="tglQuote" type="checkbox"> Quote strip</label>
+    <label class="check"><input id="tglVol" type="checkbox"> Volume tag</label>
+    <label class="check"><input id="tglHeat" type="checkbox"> Heat pill</label>
+    <label class="check"><input id="tglSeal" type="checkbox"> Starburst seal</label>
+    <label class="check"><input id="tglBarcode" type="checkbox"> Barcode</label>
+
+    <p class="about">Golden Hour Cover Studio builds GTA 6 style covers from your
+    photos and procedural art. Everything runs offline in your browser —
+    no uploads, no tracking.</p>
+  </aside>
+</main>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
